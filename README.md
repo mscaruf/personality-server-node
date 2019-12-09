@@ -24,6 +24,7 @@ npm link typescript
 Run Express server with:
 
 ```console
+npm run build
 npm run dev
 ```
 

@@ -1,5 +1,5 @@
-import express from "express";
 import dotenv from "dotenv";
+import express from "express";
 
 // initialize configuration
 dotenv.config();
@@ -14,5 +14,5 @@ app.get( "/", ( req, res ) => {
 
 // start the Express server
 app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
+    // console.log( `server started at http://localhost:${ port }` );
 } );
