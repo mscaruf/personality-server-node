@@ -1,0 +1,23 @@
+{
+    "name": "Narcissistic disorder",
+    "shortname": "narcissistic",
+    "description": "...",
+    "description-url": "https://www.helpguide.org/articles/mental-disorders/narcissistic-personality-disorder.htm",
+    "tags": 
+    [
+        "grandiose",
+        "insecure", 
+        "selfish", 
+        "self-cencentered", 
+        "cocky", 
+        "manipulative", 
+        "selfish", 
+        "patronizing", 
+        "demanding",
+        "blameshifter",
+        "finger-pointer",
+        "defensive",
+        "scapegoat",
+        "exploiter"
+    ]
+}
