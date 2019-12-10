@@ -51,7 +51,10 @@
     "typescript": "^3.7.3"
   },
   "dependencies": {
+    "@types/mongoose": "^5.5.32",
     "express": "^4.17.1",
-    "mongoose": "^5.7.14"
+    "mongoose": "^5.7.14",
+    "reflect-metadata": "^0.1.13",
+    "typegoose": "^5.9.1"
   }
 }
