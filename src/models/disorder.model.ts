@@ -17,5 +17,5 @@ export class Disorder extends Typegoose {
 
 export const DisorderModel = new Disorder().getModelForClass(Disorder, {
     existingMongoose: mongoose,
-    schemaOptions: {collection: "disorders"}
+    schemaOptions: { collection: "disorders" }
 });

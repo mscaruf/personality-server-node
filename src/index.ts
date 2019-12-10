@@ -8,11 +8,11 @@ dotenv.config();
 const app = express();
 const port = process.env.SERVER_PORT;
 
-app.get( "/", ( req, res ) => {
-    res.send( "Welcome to Personality's backend API!" );
-} );
+app.get("/", (req, res) => {
+    res.send("Welcome to Personality's backend API!");
+});
 
-app.get( "/disorders", (req, res) => {
+app.get("/disorders", (req, res) => {
     const repo = new DisorderRepository();
 
     repo.getDisorders().then((data) => {
@@ -20,7 +20,7 @@ app.get( "/disorders", (req, res) => {
     });
 });
 
-app.get( "/disorder/:shortname", (req, res) => {
+app.get("/disorder/:shortname", (req, res) => {
     const repo = new DisorderRepository();
 
     repo.getDisorder(req.params.shortname).then((data) => {
@@ -32,6 +32,6 @@ app.get( "/disorder/:shortname", (req, res) => {
 });
 
 // start the Express server
-app.listen( port, () => {
-    console.log( `server started at http://localhost:${ port }` );
+app.listen(port, () => {
+    console.log(`server started at http://localhost:${port}`);
 });

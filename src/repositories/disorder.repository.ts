@@ -11,7 +11,7 @@ export class DisorderRepository {
     }
 
     public async getDisorder(shortname: string): Promise<Disorder> {
-        return DisorderModel.findOne({shortname});
+        return DisorderModel.findOne({ shortname });
     }
 
     public async getDisorders(): Promise<Disorder[]> {
