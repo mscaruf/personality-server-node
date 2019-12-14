@@ -19,3 +19,6 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
 });
+
+// Export our app for testing purposes
+export default app;

@@ -1,6 +1,9 @@
 import mongoose = require("mongoose");
 import { Subject, SubjectModel } from "../models/subject.model";
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useUnifiedTopology', true);
+
 export class SubjectRepository {
     constructor() {
         const host = process.env.MONGO_DB_HOST;

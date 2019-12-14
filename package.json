@@ -9,7 +9,7 @@
     "tsc": "tsc",
     "build": "npm-run-all clean lint tsc",
     "dev:start": "npm-run-all build start",
-    "dev": "nodemon --watch src -e ts, npm run dev:start",
+    "dev": "nodemon --watch src -e ts, npm run build, npm run dev:start",
     "start": "node .",
     "test": "mocha -r ts-node/register test/**/*.spec.ts"
   },
@@ -52,6 +52,7 @@
   },
   "dependencies": {
     "@types/mongoose": "^5.5.32",
+    "chai-http": "^4.3.0",
     "express": "^4.17.1",
     "mongoose": "^5.7.14",
     "reflect-metadata": "^0.1.13",
