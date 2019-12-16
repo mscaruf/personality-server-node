@@ -4,15 +4,15 @@ import { prop, Typegoose } from "typegoose";
 
 export class Disorder extends Typegoose {
     @prop()
-    public name: string;
+    name: string;
     @prop()
-    public shortname: string;
+    shortname: string;
     @prop()
-    public description?: string;
+    description?: string;
     @prop()
-    public descriptionUrl: string;
+    descriptionUrl: string;
     @prop()
-    public tags: string[];
+    tags: string[];
 }
 
 export const DisorderModel = new Disorder().getModelForClass(Disorder, {

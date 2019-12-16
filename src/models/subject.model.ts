@@ -4,11 +4,11 @@ import { prop, Typegoose } from "typegoose";
 
 export class Subject extends Typegoose {
     @prop()
-    public firstName: string;
+    firstName: string;
     @prop()
-    public lastName: string;
+    lastName: string;
     @prop()
-    public tags: string[];
+    tags: string[];
 }
 
 export const SubjectModel = new Subject().getModelForClass(Subject, {

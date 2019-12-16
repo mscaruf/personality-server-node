@@ -13,11 +13,11 @@ export class DisorderRepository {
         mongoose.connect(`${host}:${port}/${db}`);
     }
 
-    public async getDisorder(shortname: string): Promise<Disorder> {
+    async getDisorder(shortname: string): Promise<Disorder> {
         return DisorderModel.findOne({ shortname });
     }
 
-    public async getDisorders(): Promise<Disorder[]> {
+    async getDisorders(): Promise<Disorder[]> {
         return DisorderModel.find({});
     }
 }

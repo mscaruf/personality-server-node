@@ -13,11 +13,15 @@ export class SubjectRepository {
         mongoose.connect(`${host}:${port}/${db}`);
     }
 
-    public async getSubject(firstName: string, lastName: string): Promise<Subject> {
+    async getSubject(firstName: string, lastName: string): Promise<Subject> {
         return SubjectModel.findOne({ firstName, lastName });
     }
 
-    public async getSubjects(): Promise<Subject[]> {
+    async getSubjectById( id: string): Promise<Subject> {
+        return SubjectModel.findOne({ _id : id });
+    }
+
+    async getSubjects(): Promise<Subject[]> {
         return SubjectModel.find({});
     }
 }

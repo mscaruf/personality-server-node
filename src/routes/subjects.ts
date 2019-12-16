@@ -1,6 +1,12 @@
 import express from "express";
 
+import { Disorder } from "../models/disorder.model";
+import { Subject } from "../models/subject.model";
+
+import { DisorderRepository } from "../repositories/disorder.repository";
 import { SubjectRepository } from "../repositories/subject.repository";
+
+import { getSubjectScore } from "../utils/score.utils";
 
 const app = express.Router();
 
@@ -9,6 +15,25 @@ app.get("/", (req, res) => {
 
     repo.getSubjects().then((data) => {
         res.status(200).send(data);
+    });
+});
+
+app.get("/score/:id", (req, res) => {
+    const subjectRepo = new SubjectRepository();
+    const disorderRepo = new DisorderRepository();
+
+    const promises: [Promise<Subject>, Promise<Disorder[]>] = [
+        subjectRepo.getSubjectById(req.params.id),
+        disorderRepo.getDisorders()
+    ];
+
+    // TODO handle promise types
+    Promise.all(promises).then((data: [Subject, Disorder[]]) => {
+
+        const subject = data[0];
+        const disorders = data[1];
+
+        res.status(200).send(getSubjectScore(subject, disorders));
     });
 });
 
