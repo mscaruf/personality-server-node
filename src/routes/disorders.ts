@@ -21,7 +21,7 @@ app.get("/:shortname", (req, res) => {
         } else {
             res.status(404).send("Resource not found.");
         }
-    })
+    });
 });
 
 module.exports = app;

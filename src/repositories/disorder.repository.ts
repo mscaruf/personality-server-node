@@ -1,8 +1,8 @@
 import mongoose = require("mongoose");
 import { Disorder, DisorderModel } from "../models/disorder.model";
 
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useUnifiedTopology', true);
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useUnifiedTopology", true);
 
 export class DisorderRepository {
     constructor() {
