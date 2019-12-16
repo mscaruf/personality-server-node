@@ -27,7 +27,6 @@ app.get("/score/:id", (req, res) => {
         disorderRepo.getDisorders()
     ];
 
-    // TODO handle promise types
     Promise.all(promises).then((data: [Subject, Disorder[]]) => {
 
         const subject = data[0];
