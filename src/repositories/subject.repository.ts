@@ -17,11 +17,23 @@ export class SubjectRepository {
         return SubjectModel.findOne({ firstName, lastName });
     }
 
-    async getSubjectById( id: string): Promise<Subject> {
-        return SubjectModel.findOne({ _id : id });
+    async getSubjectById(id: string): Promise<Subject> {
+        return SubjectModel.findOne({ _id: id });
     }
 
     async getSubjects(): Promise<Subject[]> {
         return SubjectModel.find({});
+    }
+
+    async addSubject(subject: Subject): Promise<Subject> {
+        return SubjectModel.create(subject);
+    }
+
+    async updateSubject(id: string, subject: Subject): Promise<Subject> {
+        return SubjectModel.updateOne({ _id: id }, subject);
+    }
+
+    async deleteSubject(id: string): Promise<any> {
+        return SubjectModel.findByIdAndRemove({ _id: id });
     }
 }

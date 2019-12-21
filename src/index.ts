@@ -7,6 +7,10 @@ dotenv.config();
 const app = express();
 const port = process.env.SERVER_PORT;
 
+// read post params
+app.use(express.json());
+app.use(express.urlencoded());
+
 // importing routes
 app.use("/subjects", require("./routes/subjects"));
 app.use("/disorders", require("./routes/disorders"));

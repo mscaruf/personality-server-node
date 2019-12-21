@@ -20,4 +20,20 @@ export class DisorderRepository {
     async getDisorders(): Promise<Disorder[]> {
         return DisorderModel.find({});
     }
+
+    async getDisorderById(id: string): Promise<Disorder> {
+        return DisorderModel.findOne({ _id: id });
+    }
+
+    async addDisorder(disorder: Disorder): Promise<Disorder> {
+        return DisorderModel.create(disorder);
+    }
+
+    async updateDisorder(id: string, disorder: Disorder): Promise<Disorder> {
+        return DisorderModel.updateOne({ _id: id }, disorder);
+    }
+
+    async deleteDisorder(id: string): Promise<any> {
+        return DisorderModel.findByIdAndRemove({ _id: id });
+    }
 }

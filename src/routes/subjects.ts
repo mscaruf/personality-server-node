@@ -33,6 +33,8 @@ app.get("/score/:id", (req, res) => {
         const disorders = data[1];
 
         res.status(200).send(getSubjectScore(subject, disorders));
+    }).catch((err) => {
+        res.status(404).send("Resource not found.");
     });
 });
 
@@ -45,6 +47,56 @@ app.get("/:firstName/:lastName", (req, res) => {
         } else {
             res.status(404).send("Resource not found.");
         }
+    });
+});
+
+app.get("/:id", (req, res) => {
+    const repo = new SubjectRepository();
+
+    repo.getSubjectById(req.params.id).then((data: Subject) => {
+        if (data) {
+            res.status(200).send(data);
+        } else {
+            res.status(404).send("Resource not found.");
+        }
+    });
+});
+
+app.post("/", (req, res) => {
+    const repo = new SubjectRepository();
+
+    const subject = new Subject();
+    subject.populate(req.body);
+
+    repo.addSubject(subject).then((data) => {
+        res.status(200).send(data);
+    }).catch((err) => {
+        res.status(406).send("Resource format not valid.");
+    });
+
+});
+
+app.put("/:id", (req, res) => {
+    const repo = new SubjectRepository();
+
+    const subject = new Subject();
+    subject.populate(req.body);
+
+    repo.updateSubject(req.params.id, subject).then((data: Subject) => {
+        res.status(200).send(data);
+    }).catch((err) => {
+        res.status(406).send("Resource format not valid.");
+    });
+
+});
+
+app.delete("/:id", (req, res) => {
+    const repo = new SubjectRepository();
+
+    repo.deleteSubject(req.params.id).then((data) => {
+        res.status(200).send(data);
+    }).catch((err) => {
+        res.status(404).send("Resource not found.");
     });
 });
 
