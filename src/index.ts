@@ -9,7 +9,7 @@ const port = process.env.SERVER_PORT;
 
 // read post params
 app.use(express.json());
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 
 // importing routes
 app.use("/subjects", require("./routes/subjects"));

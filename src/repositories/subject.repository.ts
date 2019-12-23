@@ -36,4 +36,8 @@ export class SubjectRepository {
     async deleteSubject(id: string): Promise<any> {
         return SubjectModel.findByIdAndRemove({ _id: id });
     }
+
+    async deleteAllSubjectsByFirstAndLastName(firstName: string, lastName: string): Promise<any> {
+        return SubjectModel.deleteMany({ firstName, lastName });
+    }
 }

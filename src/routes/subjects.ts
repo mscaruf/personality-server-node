@@ -42,11 +42,9 @@ app.get("/:firstName/:lastName", (req, res) => {
     const repo = new SubjectRepository();
 
     repo.getSubject(req.params.firstName, req.params.lastName).then((data) => {
-        if (data) {
-            res.status(200).send(data);
-        } else {
-            res.status(404).send("Resource not found.");
-        }
+        res.status(200).send(data);
+    }).catch((err) => {
+        res.status(404).send("Resource not found.");
     });
 });
 
@@ -54,11 +52,9 @@ app.get("/:id", (req, res) => {
     const repo = new SubjectRepository();
 
     repo.getSubjectById(req.params.id).then((data: Subject) => {
-        if (data) {
-            res.status(200).send(data);
-        } else {
-            res.status(404).send("Resource not found.");
-        }
+        res.status(200).send(data);
+    }).catch((err) => {
+        res.status(404).send("Resource not found.");
     });
 });
 
@@ -98,6 +94,18 @@ app.delete("/:id", (req, res) => {
     }).catch((err) => {
         res.status(404).send("Resource not found.");
     });
+});
+
+app.delete("/:firstName/:lastName", (req, res) => {
+    const repo = new SubjectRepository();
+
+    repo.deleteAllSubjectsByFirstAndLastName(
+        req.params.firstName, req.params.lastName).then((data) => {
+        res.status(200).send(data);
+    }).catch((err) => {
+        res.status(404).send("Resource not found.");
+    });
+
 });
 
 module.exports = app;
